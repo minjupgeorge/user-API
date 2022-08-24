@@ -15,9 +15,13 @@ function myFunction() {
     });
     
     function appendData(data) 
-    {
+        {
+            const newol1 = document.createElement("ol")
+         for (var i = 0; i < data.length; i++)
+         {
         const newol = document.createElement("ul")
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++)
+         {
         const newLi= document.createElement("li");
         newLi.innerText =  data[i].name;
         const newLi1= document.createElement("li");
@@ -26,14 +30,13 @@ function myFunction() {
         newLi2.innerText =  data[i].email;
         const newLi3= document.createElement("li");
         newLi3.innerText =  data[i].address.city;
-        newol.appendChild(newLi) ;  
-        newol.appendChild(newLi1) ;
-        newol.appendChild(newLi2) ;
-        newol.appendChild(newLi3) ;
-        }
+        newol.append(newLi,newLi1,newLi2,newLi3) ;  
+       }
          
-                root.append(newol);
+                newol1.append(newol);
         }
+        root.append(newol1)
+    }
     }
 
 

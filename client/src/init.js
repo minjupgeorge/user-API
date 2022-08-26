@@ -1,4 +1,4 @@
-const root = document.getElementById('root');
+/*const root = document.getElementById('root');
 const element = document.getElementById("user-input");
 element.addEventListener("click", myFunction);
 
@@ -45,7 +45,7 @@ function myFunction() {
     }
     */
 
-    data.forEach((user) =>{
+   /* data.forEach((user) =>{
         displayUser(user);
     })
 }
@@ -66,16 +66,21 @@ function displayUser(user)
  function checkid ()
  {  cleardata();
     const user_id = document.getElementById('number-input').value;
+    const alertmessage = document.getElementsByClassName("alert");
     if (user_id == "" ) {
-        alert("Please enter something");
+        alertmessage("Please enter something");
       } else if(isNaN(user_id)) {
         alert("Please enter a valid User ID");
-      } else {
-       const user= getUser(user_id);
-//console.log("userid to display",user);    
-  //     appendData(user);
       }
- }
+        else if((user_id<=0)||(user_id>=11))
+        {
+        alert("Please enter an id between 1 and 10");
+        }
+       else {
+       const user= getUser(user_id);   
+            }
+    }
+ 
     function getUser (user_id)
     { console.log("userid",user_id);
         fetch(`https://jsonplaceholder.typicode.com/users/${user_id}`)
@@ -94,6 +99,12 @@ function displayUser(user)
         })
         .then(data => displayUser(data))
         .catch( err =>  console.error(err)); 
-       // console.log("userinsidegetuserid",user);
-        //return user;
+       
     }
+*/
+
+import { DISPLAY_USERBYID, DISPLAY_USERS } from "../data/constants.js";
+import {DisplayByIdListener, DisplayAllUsersListener } from "./listeners/listener.js";
+
+DisplayByIdListener(document.getElementById(DISPLAY_USERBYID));
+DisplayAllUsersListener(document.getElementById(DISPLAY_USERS));
